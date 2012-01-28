@@ -1,6 +1,7 @@
 config/initializers/site_keys.rb
 config/environment.rb
 config/database.yml
+tmp/
 
 # Compiled source #
 ###################
