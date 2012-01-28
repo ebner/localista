@@ -25,12 +25,18 @@
 	position:absolute;
 	top:0;
 	left:0;
-	padding:5px;
 	height:100px;
 	width:100%;
 	background-color:#0F0E0E;
 	z-index:10;
 }
+
+#text{
+	margin-top:120px;
+	padding:20px;	
+	width:500px;
+}
+
 
 #menu {
 	position:absolute;
@@ -49,4 +55,10 @@
 	font-size:18px;
 	color:#F2F1E8;
 	text-decoration:none;
+}
+
+#text p{
+	font-family: Times, serif;
+	font-size:16px;
+	color:#333;
 }
