@@ -9,7 +9,9 @@
   <link href='http://fonts.googleapis.com/css?family=Sofia|Coming+Soon' rel='stylesheet' type='text/css'>
 </head>
 <body>
+	<div id="top">
 	<img src="/logo.png">
+	<div id="menu">
 	<p>
 	<a href="/about">About</a> |
 	<% if user_signed_in? %>
@@ -21,8 +23,11 @@
 	  <%= link_to('Register', new_user_registration_path)  %> 
 	<% end %>
 	</p>
+	</div>
+	</div>
+	<div id="all">
 	<%= yield %>
-
+	</div>
 	<%= yield :scripts %>
 </body>
 </html>

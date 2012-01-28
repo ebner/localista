@@ -11,3 +11,42 @@
  *= require_self
  *= require_tree .
 */
+
+#all {
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color:white;
+}
+
+#top {
+	position:absolute;
+	top:0;
+	left:0;
+	padding:5px;
+	height:100px;
+	width:100%;
+	background-color:#0F0E0E;
+	z-index:10;
+}
+
+#menu {
+	position:absolute;
+	top:50px;
+	right:20px;
+}
+
+#menu p{
+	font-family: 'Sofia', cursive;
+	font-size:18px;
+	color:#F2F1E8;
+}
+
+#menu a{
+	font-family: 'Sofia', cursive;
+	font-size:18px;
+	color:#F2F1E8;
+	text-decoration:none;
+}
