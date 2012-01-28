@@ -14,8 +14,7 @@
   <b>Available:</b>
   <%= @item.available %>
 </p>
-<p>By: <%= @user.email %></p>
-<p>In: <%= @location.long%> <%=@location.lat %></p>
+<p>By: <%= @user.name %></p>
 <%= image_tag(@image) %>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

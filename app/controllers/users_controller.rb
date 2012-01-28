@@ -5,5 +5,8 @@ class UsersController < Devise::SessionsController
  def update
    super
  end
+ def new
+   super
+ end
  
 end
