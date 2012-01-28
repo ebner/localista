@@ -1,14 +1,19 @@
 Loc::Application.routes.draw do
+  resources :items
+  
+  resources :items do
+    get :autocomplete_item_name, :on => :collection
+  end
+
   devise_for :users
 
-  resources :items
   resources :users
   resources :locations
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
-  match 'products/:id' => 'catalog#view'
+  # match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
   
   match 'my_items' => 'items#my_items'

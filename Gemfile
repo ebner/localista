@@ -14,6 +14,8 @@ gem 'gmaps4rails'
 
 gem 'json'
 
+gem 'rails3-jquery-autocomplete'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
