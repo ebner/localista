@@ -1,5 +1,9 @@
 Loc::Application.routes.draw do
   resources :items
+  
+  resources :items do
+    get :autocomplete_item_name, :on => :collection
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

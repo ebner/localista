@@ -13,7 +13,9 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.autocomplete_field :name, autocomplete_item_name_items_path %>
+    <!--<%= f.text_field :name %>-->
+    <!--<%= select(:item, :name, Item::FOODNAMES.collect {|d| [d, Item::FOODNAMES.index(d)]}) %>-->
   </div>
   <div class="field">
     <%= f.label :description %><br />

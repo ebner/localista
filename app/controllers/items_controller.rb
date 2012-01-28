@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  
+  autocomplete :item, :name
+  
   # GET /items
   # GET /items.json
   def index
