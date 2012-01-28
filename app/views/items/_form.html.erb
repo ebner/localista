@@ -13,19 +13,32 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.autocomplete_field :name, autocomplete_item_name_items_path %>
-    <!--<%= f.text_field :name %>-->
-    <!--<%= select(:item, :name, Item::FOODNAMES.collect {|d| [d, Item::FOODNAMES.index(d)]}) %>-->
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :available %><br />
-    <%= f.check_box :available %>
+    <%= f.label :available %> <%= f.check_box :available %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+$(function() {
+	var availableNames = <%= array_or_string_for_javascript(Item::FOODNAMES) %>
+	$("#item_name").autocomplete({
+			source: function(req, response) {
+        	var re = $.ui.autocomplete.escapeRegex(req.term);
+        	var matcher = new RegExp("^" + re, "i");
+        	var a = $.grep(availableNames, function(item,index){
+        		return matcher.test(item);
+        	});
+        	response(a);
+     	}
+	});
+});
+</script>

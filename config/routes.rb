@@ -1,12 +1,6 @@
 Loc::Application.routes.draw do
   resources :items
-  
-  resources :items do
-    get :autocomplete_item_name, :on => :collection
-  end
-
   devise_for :users
-
   resources :users
   resources :locations
   # The priority is based upon order of creation:
