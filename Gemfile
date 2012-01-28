@@ -8,6 +8,10 @@ gem 'rails', '3.2.1'
 #gem 'sqlite3'
 gem 'mysql'
 
+gem 'devise'
+
+gem 'gmaps4rails'
+
 gem 'json'
 
 gem 'rails3-jquery-autocomplete'

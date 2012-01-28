@@ -1,4 +1,4 @@
-<h1>Listing items</h1>
+<h1>My items</h1>
 
 <table>
   <tr>
@@ -16,6 +16,8 @@
     <td><%= item.description %></td>
     <td><%= item.available %></td>
     <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
