@@ -6,7 +6,11 @@
 		var Circle = null;
 		var Radius = $("#radius").val();
 
+		<% if @loc %>
 		var StartPosition = new google.maps.LatLng(<%= @loc.lat %>, <%= @loc.long %>);
+		<% else %>
+		var StartPosition = new google.maps.LatLng(60, 15);
+		<% end %>
 
 		function DrawCircle(Map, Center, Radius) {
 
