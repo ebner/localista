@@ -26,4 +26,7 @@ class LocationsController < ApplicationController
    end
  end
  
+ def edit
+ end
+ 
 end

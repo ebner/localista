@@ -13,6 +13,7 @@ Loc::Application.routes.draw do
   match 'my_items' => 'items#my_items'
   match 'about' => 'items#about'
   match 'search' => 'items#search'
+  match 'users/edit/location' => 'locations#edit'
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
