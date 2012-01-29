@@ -51,8 +51,6 @@ class LocationsController < ApplicationController
  def update
    @user = User.find(current_user.id)
    @location = @user.location
-   puts "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
-   puts params[:longitude]
    @location.long = params[:longitude]
    @location.lat = params[:latitude]
    @location.save
