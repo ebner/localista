@@ -46,6 +46,8 @@ GEM
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
+    geokit (1.6.5)
+      multi_json
     gmaps4rails (1.4.3)
       json
     hike (1.2.1)
@@ -117,6 +119,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
+  geokit
   gmaps4rails
   jquery-rails
   json

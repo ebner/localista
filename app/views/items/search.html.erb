@@ -1,0 +1,39 @@
+<div id="text">
+
+<form action='/search'>
+<input name="name" type="text" value="<%= params[:name] %>" />
+<input type='submit' value='Search' />
+</form>
+
+<br />
+
+<% if params[:name] %>
+
+<% if @items.empty? %>
+	<span>Nothing found</span><br/>
+<% else %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Distance (km)</th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.description %></td>
+    <% a = GeoKit::LatLng.new(@location.lat, @location.long) %>
+    <% b = GeoKit::LatLng.new(item.user.location.lat, item.user.location.long) %>
+    <th><%= '%.2f' % a.distance_to(b, {:options => :kms}) %></th>
+    <td><%= link_to 'Show', item %></td>
+  </tr>
+<% end %>
+</table>
+
+<% end %>
+<% end %>
+
+</div>

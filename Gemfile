@@ -14,6 +14,8 @@ gem 'gmaps4rails'
 
 gem 'pg', '~> 0.12.2'
 
+gem 'geokit'
+
 gem 'json'
 
 # Gems used only for assets and not required
