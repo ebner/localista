@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'gmaps4rails'
 
+gem 'pg'
+
 gem 'mysql2psql'
 
 gem 'json'
