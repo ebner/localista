@@ -108,4 +108,5 @@ class Item < ActiveRecord::Base
 'Wild boar',
 'Yogurt'
     ]
+
 end
