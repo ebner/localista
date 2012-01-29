@@ -12,9 +12,7 @@ gem 'devise'
 
 gem 'gmaps4rails'
 
-gem 'pg'
-
-gem 'mysql2psql'
+gem 'pg', '~> 0.12.2'
 
 gem 'json'
 
