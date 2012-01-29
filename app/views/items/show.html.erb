@@ -1,23 +1,14 @@
 <div id="text">
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @item.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @item.description %>
-</p>
-
-<p>
-  <b>Available:</b>
-  <%= @item.available %>
-</p>
-<p>By: <%= @user.name %></p>
+<h2><%= @user.name %> has <b><%= @item.name %></b> in <%= @location.name%></h2>
+<p><%= @item.description %></p>
 <%= image_tag(@image) %>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<p>
+  <% if @item.available %>
+	<p>Available</p>
+  <% else %>
+  <p>Not available right now</p>
+<% end %>
+<p><%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %></p>
 </div>

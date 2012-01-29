@@ -8,21 +8,22 @@
 <%= yield :head %>
   <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/ui-lightness/jquery-ui.css' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Sofia|Coming+Soon' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div id="top">
 	<a href="/"><img src="/logo.png"></a>
 	<div id="menu">
 	<p>
-	<a href="/search">Search</a> &middot; 
 	<a href="/about">About</a> &middot; 
 	<% if user_signed_in? %>
-	  <a href="/my_items">My Items</a> &middot;  
-	  <%= link_to('Edit user', edit_user_registration_path) %> &middot;  
-	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>    
+	  <a href="/search">Search</a> &middot; 
+	  <a href="/my_items">My Items</a> |		
+	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  |   
+	   <%= link_to('Edit user', edit_user_registration_path) %>    
 	<% else %>
-	  <%= link_to('Login', new_user_session_path)  %> &middot; 
-	  <%= link_to('Register', new_user_registration_path) %> 
+	  <%= link_to('Login', new_user_session_path)  %> |
+	  <%= link_to('Register', new_user_registration_path)  %> 
 	<% end %>
 	</p>
 	</div>
