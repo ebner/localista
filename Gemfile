@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'gmaps4rails'
 
+gem 'pg', '~> 0.12.2'
+
 gem 'geokit'
 
 gem 'json'

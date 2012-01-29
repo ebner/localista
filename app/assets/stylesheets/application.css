@@ -37,7 +37,6 @@
 	width:650px;
 }
 
-
 #menu {
 	position:absolute;
 	top:50px;
@@ -66,4 +65,28 @@
 	font-family: 'Quicksand', serif;
 	font-size:28px;
 	color:#333;
+}
+#item_show{
+	width:400px;
+	height:80px;
+	padding:8px;
+	background-color:#0F0E0E;
+	margin-bottom:10px;
+}
+#item_show p{
+	font-family: 'Quicksand', serif;
+	font-size:14px;
+	color:#fff;
+}
+#item_show h2{
+	font-family: 'Quicksand', serif;
+	font-size:20px;
+	color:#fff;
+}
+#item_show a{
+	text-decoration:none;
+}
+smaller{
+	font-size:16px;
+	font-weight:normal;
 }

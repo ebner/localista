@@ -15,7 +15,11 @@ class ItemsController < ApplicationController
     signed_in?(:member)
     @user = User.find(current_user.id)
     @location = @user.location
-    @items = Item.where("`name` LIKE ? AND `available`=true AND NOT `user_id`=?", params[:name], current_user.id)
+    if params[:name] == "all"
+      @items = Item.where("`user_id`!= ?", current_user.id)
+    else
+      @items = Item.where("`name` LIKE ? AND NOT `user_id`=?", params[:name], current_user.id)
+    end
   end
   
   # Get items from the logged in user
