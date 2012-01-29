@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'gmaps4rails'
 
+gem 'geokit'
+
 gem 'json'
 
 # Gems used only for assets and not required
