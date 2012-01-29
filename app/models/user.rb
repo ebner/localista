@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   
   has_one :location
-  
+  has_many :items
 end

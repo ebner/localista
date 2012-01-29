@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  belongs_to :user
     FOODNAMES = [
 'Asparagus',
 'Almonds',
