@@ -6,7 +6,7 @@
 		var Circle = null;
 		var Radius = $("#radius").val();
 
-		var StartPosition = new google.maps.LatLng(60, 15);
+		var StartPosition = new google.maps.LatLng(<%= @loc.lat %>, <%= @loc.long %>);
 
 		function DrawCircle(Map, Center, Radius) {
 
@@ -69,7 +69,7 @@
 		$("#radius").keyup(function() {
 			google.maps.event.trigger(Marker, "dragend");
 		});
-		DrawCircle(Map, StartPosition, Radius);
+		// DrawCircle(Map, StartPosition, Radius);
 		SetPosition(Marker.position);
 
 	});
@@ -79,7 +79,7 @@
 <form action='/update'>
 	Lat <%= text_field_tag "latitude" %>
 	Long <%= text_field_tag "longitude" %>
-	Radius <input type="text" id="radius" value="50" size="6" />
+	<!--Radius <input type="text" id="radius" value="50" size="6" />-->
 	<input type='submit' value='Save' />
 	<br /> <br />
 	<div id="map" style="width:600px; height:400px; background-color:#000000;"></div>
