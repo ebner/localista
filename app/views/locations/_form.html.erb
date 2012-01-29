@@ -1,0 +1,87 @@
+<script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false'></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		var Circle = null;
+		var Radius = $("#radius").val();
+
+		var StartPosition = new google.maps.LatLng(60, 15);
+
+		function DrawCircle(Map, Center, Radius) {
+
+			if(Circle != null) {
+				Circle.setMap(null);
+			}
+
+			if(Radius > 0) {
+				Radius *= 1609.344;
+				Circle = new google.maps.Circle({
+					center : Center,
+					radius : Radius,
+					strokeColor : "#0000FF",
+					strokeOpacity : 0.35,
+					strokeWeight : 2,
+					fillColor : "#0000FF",
+					fillOpacity : 0.20,
+					map : Map
+				});
+			}
+		}
+
+		function SetPosition(Location, Viewport) {
+			Marker.setPosition(Location);
+			if(Viewport) {
+				Map.fitBounds(Viewport);
+				Map.setZoom(map.getZoom() + 2);
+			} else {
+				Map.panTo(Location);
+			}
+			Radius = $("#radius").val();
+			DrawCircle(Map, Location, Radius);
+			$("#latitude").val(Location.lat().toFixed(5));
+			$("#longitude").val(Location.lng().toFixed(5));
+		}
+
+		var MapOptions = {
+			zoom : 5,
+			center : StartPosition,
+			mapTypeId : google.maps.MapTypeId.ROADMAP,
+			mapTypeControl : false,
+			disableDoubleClickZoom : true,
+			streetViewControl : false
+		};
+
+		var MapView = $("#map");
+		var Map = new google.maps.Map(MapView.get(0), MapOptions);
+
+		var Marker = new google.maps.Marker({
+			position : StartPosition,
+			map : Map,
+			title : "Drag Me",
+			draggable : true
+		});
+
+		google.maps.event.addListener(Marker, "dragend", function(event) {
+			SetPosition(Marker.position);
+		});
+
+		$("#radius").keyup(function() {
+			google.maps.event.trigger(Marker, "dragend");
+		});
+		DrawCircle(Map, StartPosition, Radius);
+		SetPosition(Marker.position);
+
+	});
+
+</script>
+
+<form action='/locations'>
+	Lat <input type="text" id="latitude" size="6" />
+	Long <input type="text" id="longitude" size="6" />
+	Radius <input type="text" id="radius" value="50" size="6" />
+	<input type='submit' value='Save' />
+	<br /> <br />
+	<div id="map" style="width:600px; height:400px; background-color:#000000;"></div>
+</form>
+</div>
