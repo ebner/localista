@@ -1,5 +1,14 @@
 class LocationsController < ApplicationController
 
+  def index
+    @locations = Location.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @items }
+    end
+  end
+
  def show
    @json = Location.all.to_gmaps4rails do |location, marker|
     # marker.infowindow render_to_string(:partial => "/users/my_template", :locals => { :object => user})
@@ -27,6 +36,24 @@ class LocationsController < ApplicationController
  end
  
  def edit
+   
  end
  
+ def new
+   
+ end
+
+ def update
+   @user = User.find(current_user.id)
+   if @user.location
+     @location = @user.location
+   else
+     @location = Location.new
+     @location.user_id = @user.id
+   end
+   @location.lat = params[:latitude]
+   @location.long = params[:latitude]
+   @location.save
+ end
+
 end
