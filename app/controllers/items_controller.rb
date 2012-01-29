@@ -11,10 +11,17 @@ class ItemsController < ApplicationController
     end
   end
   
+  def search
+    signed_in?(:member)
+    @user = User.find(current_user.id)
+    @location = @user.location
+    @items = Item.where("`name` LIKE ? AND `available`=true", params[:name])
+  end
+  
   # Get items from the logged in user
   def my_items
     signed_in?(:member)
-    @items = Item.where("user_id = ?",current_user.id)
+    @items = Item.where("user_id = ?", current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -15,8 +15,9 @@
 	<a href="/"><img src="/logo.png"></a>
 	<div id="menu">
 	<p>
-	<a href="/about">About</a> |
+	<a href="/about">About</a> &middot; 
 	<% if user_signed_in? %>
+	  <a href="/search">Search</a> &middot; 
 	  <a href="/my_items">My Items</a> |		
 	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  |   
 	   <%= link_to('Edit user', edit_user_registration_path) %>    
