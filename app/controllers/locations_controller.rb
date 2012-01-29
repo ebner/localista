@@ -44,20 +44,18 @@ class LocationsController < ApplicationController
  
  def new
    @loc = Location.new
+   @user = User.find(current_user.id)
+   @loc.user = @user
  end
 
  def update
-   @location = Loc::Application::Location.new(params[:loc])
-   @location.user_id = current_user.id
-   respond_to do |format|
-     if @location.save
-           format.html { redirect_to @location, :notice => 'Item was successfully created.' }
-           format.json { render :json => @location, :status => :created, :location => @location }
-         else
-           format.html { render :action => "new" }
-           format.json { render :json => @location.errors, :status => :unprocessable_entity }
-         end
-       end
- end
-
+   @user = User.find(current_user.id)
+   @location = @user.location
+   puts "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+   puts params[:longitude]
+   @location.long = params[:longitude]
+   @location.lat = params[:latitude]
+   @location.save
+   redirect_to @location
+end
 end

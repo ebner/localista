@@ -3,7 +3,31 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
+		var Circle = null;
+		var Radius = $("#radius").val();
+
 		var StartPosition = new google.maps.LatLng(60, 15);
+
+		function DrawCircle(Map, Center, Radius) {
+
+			if(Circle != null) {
+				Circle.setMap(null);
+			}
+
+			if(Radius > 0) {
+				Radius *= 1609.344;
+				Circle = new google.maps.Circle({
+					center : Center,
+					radius : Radius,
+					strokeColor : "#0000FF",
+					strokeOpacity : 0.35,
+					strokeWeight : 2,
+					fillColor : "#0000FF",
+					fillOpacity : 0.20,
+					map : Map
+				});
+			}
+		}
 
 		function SetPosition(Location, Viewport) {
 			Marker.setPosition(Location);
@@ -13,8 +37,10 @@
 			} else {
 				Map.panTo(Location);
 			}
-			$("#lat").val(Location.lat().toFixed(5));
-			$("#long").val(Location.lng().toFixed(5));
+			Radius = $("#radius").val();
+			DrawCircle(Map, Location, Radius);
+			$("#latitude").val(Location.lat().toFixed(5));
+			$("#longitude").val(Location.lng().toFixed(5));
 		}
 
 		var MapOptions = {
@@ -40,21 +66,22 @@
 			SetPosition(Marker.position);
 		});
 
+		$("#radius").keyup(function() {
+			google.maps.event.trigger(Marker, "dragend");
+		});
+		DrawCircle(Map, StartPosition, Radius);
 		SetPosition(Marker.position);
 
 	});
 
 </script>
 
-<div id="text">
-<%= form_for @loc do |f| %>
-  <%= f.label :lat, 'latitude' %>:
-  <%= f.text_field :lat %><br />
-  <%= f.label :long, 'longitude' %>:
-  <%= f.text_field :long %><br />
-  <%= f.label :name, 'name' %>:
-  <%= f.text_field :name %><br />
-  <%= f.submit %>
-  <div id="map" style="width:600px; height:400px; background-color:#000000;"></div>
-<% end %>
+<form action='/update'>
+	Lat <%= text_field_tag "latitude" %>
+	Long <%= text_field_tag "longitude" %>
+	Radius <input type="text" id="radius" value="50" size="6" />
+	<input type='submit' value='Save' />
+	<br /> <br />
+	<div id="map" style="width:600px; height:400px; background-color:#000000;"></div>
+</form>
 </div>
