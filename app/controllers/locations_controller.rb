@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
        marker.picture({:picture => "/icons/meat.png",:width   => "50",:height  => "50"}) 
      when "grains" 
        marker.picture({:picture => "/icons/grains.png",:width   => "50",:height  => "50"})       
-     when "game" 
+     when "venison" 
        marker.picture({:picture => "/icons/moose.png",:width   => "50",:height  => "50"}) 
      when "dairy" 
        marker.picture({:picture => "/icons/dairy.png",:width   => "50",:height  => "50"}) 
