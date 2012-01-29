@@ -47,7 +47,7 @@ class LocationsController < ApplicationController
  end
 
  def update
-   @location = Loc::Application::Location.new(params[:loc])
+   @location = Location.new(params[:loc])
    @location.user_id = current_user.id
    respond_to do |format|
      if @location.save
