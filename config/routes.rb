@@ -4,8 +4,6 @@ Loc::Application.routes.draw do
   resources :users
   resources :locations
   
-  match 'locationedit' => 'locations#edit'
-  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -17,6 +15,8 @@ Loc::Application.routes.draw do
   match 'about' => 'items#about'
   match 'search' => 'items#search'
 
+match 'edit_my_location' => 'locations#edit'
+match 'update' => 'locations#update'
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)

@@ -50,6 +50,7 @@ GEM
       multi_json
     gmaps4rails (1.4.3)
       json
+    heroku_external_db (1.0.3)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.1)
@@ -121,6 +122,7 @@ DEPENDENCIES
   devise
   geokit
   gmaps4rails
+  heroku_external_db
   jquery-rails
   json
   mysql

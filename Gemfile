@@ -14,6 +14,8 @@ gem 'gmaps4rails'
 
 gem 'pg', '~> 0.12.2'
 
+gem 'heroku_external_db'
+
 gem 'geokit'
 
 gem 'json'
