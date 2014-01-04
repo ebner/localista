@@ -12,7 +12,7 @@ gem 'devise'
 
 gem 'gmaps4rails'
 
-gem 'pg', '~> 0.12.2'
+#gem 'pg'
 
 gem 'heroku_external_db'
 
